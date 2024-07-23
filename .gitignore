@@ -131,6 +131,3 @@ dist
 
 # Nosso projeto
 build/
-
-#NEXT CONFIG
-next.config.js
