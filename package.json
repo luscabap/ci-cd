@@ -1,6 +1,5 @@
 {
   "name": "ci-cd",
-  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "author": "luscabap <lucasbaptistasilva.dev@gmail.com>",
