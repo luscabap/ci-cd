@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 const { execSync } = require("child_process")
-import { fetch } from "node-fetch"
-
 
 console.log("================[DEPLOY_PREVIEW]: START================");
 const command = 'yarn deploy:staging';
