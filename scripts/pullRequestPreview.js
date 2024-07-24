@@ -33,8 +33,13 @@ fetch(
   }
 )
   .then((response) => {
-    if (response.ok) return response.json();
-    throw new Error(response.statusText);
+    if (response.ok) {
+      console.log("RESPOSTA OK")
+      return response.json()
+    } else {
+      console.log("FALHA RESPOSTA");
+      throw new Error(response.statusText);
+    }
   })
   .catch((err) => {
     console.log("================[COMMENT_ON_GITHUB: ERROR]================");
