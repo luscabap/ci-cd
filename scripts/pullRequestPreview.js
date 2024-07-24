@@ -1,22 +1,22 @@
 /* eslint-disable prettier/prettier */
 const { execSync } = require("child_process")
-console.log("[DEPLOY_PREVIEW]: START");
+console.log("================[DEPLOY_PREVIEW]: START================");
 const command = 'yarn deploy:staging';
 const output = execSync(command, { encoding: "utf8" });
 const outputLines = output.split("\n")
 const DEPLOY_URL = outputLines[outputLines.length - 1]
-console.log("[DEPLOY_PREVIEW]: END");
+console.log("================[DEPLOY_PREVIEW]: END================");
 
-console.log(`You can see the deploy preview on: ${DEPLOY_URL}`);
+console.log(`================You can see the deploy preview on: ${DEPLOY_URL}================`);
 
-console.log("[GITHUB_COMMENT]: START");
+console.log("================[GITHUB_COMMENT]: START================");
+const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env;
 
 const defaultHeaders = {};
 defaultHeaders["authorization"] = `token ${GITHUB_TOKEN}`;
 defaultHeaders["accept"] = "application/vnd.github.v3+json; application/vnd.github.antiope-preview+json";
 defaultHeaders["content-type"] = "application/json";
 
-const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env;
 
 const GH_COMMENT = `- Deploy URL: [${DEPLOY_URL}](${DEPLOY_URL})`
 
@@ -35,10 +35,10 @@ fetch(
     throw new Error(response.statusText);
   })
   .catch((err) => {
-    console.log("[COMMENT_ON_GITHUB: ERROR]");
+    console.log("================[COMMENT_ON_GITHUB: ERROR]================");
     throw new Error(err);
   })
   .finally(() => {
-    console.log("[COMMENT_ON_GITHUB: END]");
+    console.log("================[COMMENT_ON_GITHUB: END]================");
   });
 
