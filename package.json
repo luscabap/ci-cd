@@ -1,5 +1,6 @@
 {
   "name": "ci-cd",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "author": "luscabap <lucasbaptistasilva.dev@gmail.com>",
@@ -17,7 +18,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "deploy": "yarn build && npx vercel ./out --yes --no-clipboard",
-    "deploy:prod": "yarn build && yarn deploy --prod --token=$VERCEL_TOKEN",
+    "deploy:staging": "yarn build && yarn deploy --token=$VERCEL_TOKEN",
+    "deploy:prod": "yarn deploy:staging --prod",
     "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "devDependencies": {
