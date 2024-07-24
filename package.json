@@ -16,9 +16,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "deploy": "yarn build && npx vercel ./out --yes",
-    "deploy:staging": "yarn build && yarn deploy --token=$VERCEL_TOKEN",
+    "deploy": "yarn build && npx vercel ./out --yes --no-clipboard",
     "deploy:prod": "yarn deploy:staging --prod",
+    "deploy:staging": "yarn deploy --token=$VERCEL_TOKEN",
     "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "devDependencies": {
