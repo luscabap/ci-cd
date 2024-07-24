@@ -131,3 +131,4 @@ dist
 
 # Nosso projeto
 build/
+.vercel

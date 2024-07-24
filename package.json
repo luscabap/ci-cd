@@ -7,15 +7,20 @@
   "dependencies": {
     "eslint-plugin-prettier": "^5.2.1",
     "next": "^14.2.5",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf out && next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "deploy": "yarn build && npx vercel ./out --yes",
+    "deploy:staging": "yarn deploy --token=$VERCEL_TOKEN",
+    "deploy:prod": "yarn deploy:staging --prod",
+    "deploy:preview": "node ./scripts/pullRequestPreview"
   },
   "devDependencies": {
     "eslint": "^8",
