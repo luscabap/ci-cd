@@ -7,7 +7,7 @@ env:
 
 on:
   push:
-    branchs: [ main ]
+    branches: [ main ]
 
 jobs:
   deploy:
