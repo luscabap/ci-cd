@@ -39,7 +39,7 @@ jobs:
           node-version: 16.13.0
           cache: 'yarn'
       - name: Cypress
-        run: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           browser: chrome
       - name: Runs Installation
